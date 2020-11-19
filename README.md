@@ -8,7 +8,7 @@
 <summary>details</summary>
 
 #### parameters : 
-- input_data (DataFrame): movie.csv에서 읽은 DataFrame. 입력된 DataFrame 객체의 원형은 바뀌지 않습니다.
+- input_data (DataFrame): movie.csv에서 읽은 DataFrame. 
         
 - year (integer): year 미만 영화는 거릅니다.
         
@@ -21,5 +21,6 @@
 - title이 (year)로 끝나지 않는 15개의 영화는 아예 제외했습니다. (ex. movield 7789)
 - year컬럼을 추가했습니다.
 - genres를 구분자 '|' 기준으로 파싱하여 문자열의 배열로 변환했습니다.
+- input_data로 입력된 DataFrame 객체의 원형은 바뀌지 않습니다.
 </details>
 
