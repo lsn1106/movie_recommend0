@@ -18,7 +18,8 @@
 -    year 컬럼이 추가되고 조건에 맞게 필터링된 DataFrame
     
 #### comment
-title이 (year)로 끝나지 않는 15개의 영화는 아예 제외했습니다.
-(ex. movield 7789)
+- title이 (year)로 끝나지 않는 15개의 영화는 아예 제외했습니다. (ex. movield 7789)
+- year컬럼을 추가했습니다.
+- genres를 구분자 '|' 기준으로 파싱하여 문자열의 배열로 변환했습니다.
 </details>
 
