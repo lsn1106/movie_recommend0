@@ -51,6 +51,9 @@ parameters :
         : rating.csv에서 읽은 DataFrame.
           입력된 DataFrame 객체의 원형은 바뀌지 않습니다.
     
+    movie_data (DataFrame)
+        : 필터링된 영화정보. 여기에 포함되는 평가만 남깁니다.
+    
     threshold (integer)
         : 평가횟수가 threshold 미만인 유저는 거릅니다.
         
@@ -61,13 +64,14 @@ return :
 def rating_filter(input_data, movie_data, threshold = 100):
     data = input_data.copy()
     
-    x = data['userId'].value_counts()>=threshold
-    y = set(x[x].index)
-    data = data[data['userId'].isin(y)]
-    
     #movie_data에 없는 평가를 한 경우 뺌
     movie_set = set(movie_data['movieId'].values)
     data = data[data['movieId'].isin(movie_set)]
     
+    #threshold개 이상 평가를 남긴 row만 남김
+    x = data['userId'].value_counts()>=threshold
+    y = set(x[x].index)
+    data = data[data['userId'].isin(y)]
+        
     return data
 
