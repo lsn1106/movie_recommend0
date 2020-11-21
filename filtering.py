@@ -58,12 +58,16 @@ return :
     필터링된 rating DataFrame
 
 """
-def rating_filter(input_data, threshold = 100):
+def rating_filter(input_data, movie_data, threshold = 100):
     data = input_data.copy()
     
     x = data['userId'].value_counts()>=threshold
-    y = x[x].index
+    y = set(x[x].index)
     data = data[data['userId'].isin(y)]
+    
+    #movie_data에 없는 평가를 한 경우 뺌
+    movie_set = set(movie_data['movieId'].values)
+    data = data[data['movieId'].isin(movie_set)]
     
     return data
 
